@@ -1,11 +1,13 @@
 // import { useState, useEffect } from "react";
-import Card from "./components/Card";
+// import Card from "./components/Card";
+import Father from "./components/Father";
 function App() {
   return (
     <>
-      <button onClick={() => window.onShow()}>打开消息</button>
+      <Father/ >
+      {/* <button onClick={() => window.onShow()}>打开消息</button>
       <Card></Card>
-      <Card></Card>
+      <Card></Card> */}
     </>
   );
 }
