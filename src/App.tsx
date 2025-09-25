@@ -1,87 +1,99 @@
-import { useState, useEffect } from "react";
-
-const App = () => {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("");
-  // 组件在挂载的时候就执行了 类似于componentDidMount
-  // useEffect(() => {
-  //   console.log("组件挂载时执行");
-  // });
-
-  // 操作dom
-  // useEffect(() => {
-  //   const data = document.getElementById("data");
-  //   console.log(data);
-  // }, []);
-
-  // 网络请求
-  // useEffect(() => {
-  //   fetch("http://localhost:5173/");
-  // }, []);
-
-  // 无依赖项更新 有响应式值发生改变时 useEffect的副作用函数就会执行
-  // useEffect(() => {
-  //   console.log("无依赖项更新", count, name);
-  // });
-
-  // 有依赖项更新 依赖项数组中的count值发生改变时，useEffect的副作用函数就会执行。而当name值改变时,由于它不在依赖项数组中,所以不会触发副作用函数的执行
-  // useEffect(() => {
-  //   console.log("执行了", count);
-  // }, [count]);
-
-  // 依赖项空值 赖项为空数组时，useEffect的副作用函数只会执行一次，也就是组件挂载时执行
-  // useEffect(() => {
-  //   console.log("依赖项空值");
-  // }, []);
-
-  // useEffect的副作用函数可以返回一个清理函数，当组件卸载时，useEffect的副作用函数就会执行清理函数。
-  // 清理函数在副作用函数运行之前，清除上一次的副作用函数，类似于componentWillUnmount
-  const [show, setShow] = useState(true);
-  const Child = (props: { name: string }) => {
-    useEffect(() => {
-      console.log("副作用函数执行", props.name);
-      // 返回一个清理函数
-      return () => {
-        console.log("先执行清理函数", props.name);
-      };
-    }, [props.name]);
-    return <div>Child:{props.name}</div>;
-  };
-
-  // 应用 防抖
-  // const Child = (props: { name: string }) => {
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       fetch("http://localhost:5173/");
-  //     }, 1000);
-  //     return () => {
-  //       clearTimeout(timer);
-  //     };
-  //   }, [props.name]);
-  //   return <div>Child</div>;
-  // };
+// import { useState, useEffect } from "react";
+import Card from "./components/Card";
+function App() {
   return (
-    <div id="data">
-      <div>
-        <h3>count:{count}</h3>
-        <button onClick={() => setCount(count + 1)}>+</button>
-      </div>
-      <div>
-        <h3>name:{name}</h3>
-        <input value={name} onChange={(e) => setName(e.target.value)} />
-      </div>
-      <div>
-        <div>
-          <h3>父组件</h3>
-          <button onClick={() => setShow(!show)}>显示/隐藏</button>
-        </div>
-        <hr />
-        <h3>子组件</h3>
-        {show && <Child name={name} />}
-      </div>
-    </div>
+    <>
+      <button onClick={() => window.onShow()}>打开消息</button>
+      <Card></Card>
+      <Card></Card>
+    </>
   );
-};
+}
+
+
+
+// const App = () => {
+//   const [count, setCount] = useState(0);
+//   const [name, setName] = useState("");
+//   // 组件在挂载的时候就执行了 类似于componentDidMount
+//   // useEffect(() => {
+//   //   console.log("组件挂载时执行");
+//   // });
+
+//   // 操作dom
+//   // useEffect(() => {
+//   //   const data = document.getElementById("data");
+//   //   console.log(data);
+//   // }, []);
+
+//   // 网络请求
+//   // useEffect(() => {
+//   //   fetch("http://localhost:5173/");
+//   // }, []);
+
+//   // 无依赖项更新 有响应式值发生改变时 useEffect的副作用函数就会执行
+//   // useEffect(() => {
+//   //   console.log("无依赖项更新", count, name);
+//   // });
+
+//   // 有依赖项更新 依赖项数组中的count值发生改变时，useEffect的副作用函数就会执行。而当name值改变时,由于它不在依赖项数组中,所以不会触发副作用函数的执行
+//   // useEffect(() => {
+//   //   console.log("执行了", count);
+//   // }, [count]);
+
+//   // 依赖项空值 赖项为空数组时，useEffect的副作用函数只会执行一次，也就是组件挂载时执行
+//   // useEffect(() => {
+//   //   console.log("依赖项空值");
+//   // }, []);
+
+//   // useEffect的副作用函数可以返回一个清理函数，当组件卸载时，useEffect的副作用函数就会执行清理函数。
+//   // 清理函数在副作用函数运行之前，清除上一次的副作用函数，类似于componentWillUnmount
+//   const [show, setShow] = useState(true);
+//   const Child = (props: { name: string }) => {
+//     useEffect(() => {
+//       console.log("副作用函数执行", props.name);
+//       // 返回一个清理函数
+//       return () => {
+//         console.log("先执行清理函数", props.name);
+//       };
+//     }, [props.name]);
+//     return <div>Child:{props.name}</div>;
+//   };
+
+//   // 应用 防抖
+//   // const Child = (props: { name: string }) => {
+//   //   useEffect(() => {
+//   //     const timer = setTimeout(() => {
+//   //       fetch("http://localhost:5173/");
+//   //     }, 1000);
+//   //     return () => {
+//   //       clearTimeout(timer);
+//   //     };
+//   //   }, [props.name]);
+//   //   return <div>Child</div>;
+//   // };
+//   return (
+//     <div id="data">
+//       <div>
+//         <h3>count:{count}</h3>
+//         <button onClick={() => setCount(count + 1)}>+</button>
+//       </div>
+//       <div>
+//         <h3>name:{name}</h3>
+//         <input value={name} onChange={(e) => setName(e.target.value)} />
+//       </div>
+//       <div>
+//         <div>
+//           <h3>父组件</h3>
+//           <button onClick={() => setShow(!show)}>显示/隐藏</button>
+//         </div>
+//         <hr />
+//         <h3>子组件</h3>
+//         {show && <Child name={name} />}
+//       </div>
+//     </div>
+//   );
+// };
 
 // function App() {
 //   let one = "空"; //普通变量
