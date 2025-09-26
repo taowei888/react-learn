@@ -1,10 +1,12 @@
 // import { useState, useEffect } from "react";
 // import Card from "./components/Card";
-import Father from "./components/Father";
+// import Father from "./components/Father";
+import ReactQuery from "./components/ReactQuery";
 function App() {
   return (
     <>
-      <Father/ >
+      <ReactQuery></ReactQuery>
+      {/* <Father/ > */}
       {/* <button onClick={() => window.onShow()}>打开消息</button>
       <Card></Card>
       <Card></Card> */}
