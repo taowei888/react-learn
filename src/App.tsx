@@ -2,11 +2,13 @@
 // import Card from "./components/Card";
 // import Father from "./components/Father";
 // import ReactQuery from "./components/ReactQuery";
-import Control from "./components/Control"
+// import Control from "./components/Control"
+import Ref from "./components/Ref"
 function App() {
   return (
     <>
-      <Control></Control>
+      <Ref></Ref>
+      {/* <Control></Control> */}
       {/* <ReactQuery></ReactQuery> */}
       {/* <Father/ > */}
       {/* <button onClick={() => window.onShow()}>打开消息</button>
