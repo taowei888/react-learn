@@ -3,11 +3,15 @@
 // import Father from "./components/Father";
 // import ReactQuery from "./components/ReactQuery";
 // import Control from "./components/Control"
-import Ref from "./components/Ref"
+// import Ref from "./components/Ref"
+// import Memo from "./components/Memo";
+import UseMemo from "./components/UseMemo";
 function App() {
   return (
     <>
-      <Ref></Ref>
+      <UseMemo></UseMemo>
+      {/* <Memo></Memo> */}
+      {/* <Ref></Ref> */}
       {/* <Control></Control> */}
       {/* <ReactQuery></ReactQuery> */}
       {/* <Father/ > */}
